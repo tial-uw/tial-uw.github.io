@@ -306,7 +306,9 @@ function apaReformat(entry) {
     var authStr = "";
     for (var i = 0; i < perAuthor.length; i++) {
       if ((i>1) && (i == (perAuthor.length-1))) {
-        authStr += "& ";
+        // authStr += "& ";
+				//! modified by hfang
+        authStr += "and ";
       }
       var curAuth = perAuthor[i].split(".");
       authStr += curAuth[curAuth.length-1].trim() + ", ";
