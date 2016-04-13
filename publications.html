@@ -49,35 +49,35 @@
       <div class="bibtex_template">
         <div class ="well">
           <div class ="container">
+						<span class="author"></span>.
+						<span class="if year"><span class="year"></span></span>.
             <span class="title " style="font-weight: bold;"></span>.
-						<span class="author"></span>
-						<span class="if year"> (<span class="year"></span>) </span>
-						<span class="if pdf" style="margin-left: 20px">
-							<a class="url " style="color:black; font-size:10px">[pdf]</a>
-						</span>
 
-            <!-- This div is what is used to determine what is displayed from the bib entry. It is written to produce (roughly) APA formatting, though it is not perfect... !-->
             <div style="margin-left: 10px; margin-bottom:5px;">
               <span class="if booktitle ">
-                <span class="booktitle " style="font-style: italic;"></span>
+                In <span class="booktitle " style="font-style: italic;"></span>
                 <span class="if pages ">
-                  (p. <span class="pages "></span>).
+                  , pp. <span class="pages "></span>
                 </span>
-                <span class="if address "><span class="address "></span>:</span>
-                <span class="if publisher "><span class="publisher "></span>.</span>
               </span>
               <span class="if journal " style="font-style: italic;">
                 <span class="journal"></span>,
 								<span class="if volume " style="font-style: italic;">
-									<span class="volume"></span>
+									, vol. <span class="volume"></span>
 								</span>
 								<span class="if number ">
-									(<span class="number "></span>),
+									, no. <span class="number "></span>
 								</span>
                 <span class="if pages ">
-                  <span class="pages "></span>.
+                  , pp. <span class="pages "></span>
                 </span>
               </span>
+            </div>
+
+            <div style="margin-left: 10px; margin-bottom:5px;">
+							<span class="if pdf" style="margin-left: 20px">
+								<a class="url " style="color:black; font-size:10px">[pdf]</a>
+							</span>
             </div>
 
           </div>
