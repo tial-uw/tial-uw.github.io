@@ -304,7 +304,8 @@ function apaReformat(entry) {
     // iterate over bibTeX entries
     var entries = b.getEntries();
     //var entries = Object.keys(entriesObj);
-    // sort by alph then year
+    // sort by alph then year 
+		//! \note (hfang): I think it only sort by year, which is what we want.
 
     var queue = new PriorityQueue({
       comparator: function (a, b) {
