@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TIAL Group Homepage - People</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/round-about.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/priority-queue.js"></script>
+		<script type="text/javascript" src="js/bibtex_js.js"></script>
+		<!-- Insert your bibtex entries in "bibtex_input" (or dynamically load them from a .bib file on your server) !-->
+		<div id="bibtex_input" style="display:none;">
+			@STRING{EMNLP			="Proc. Conf. Empirical Methods Natural Language Process. (EMNLP)"}
+			@inproceedings{jaech2015emnlp,
+			author = {Aaron Jaech and Vicky Zayats and Hao Fang and Mari Ostendorf and Hannaneh Hajishirzi},
+			title = {Talking to the crowd: What do people react to in online discussions?},
+			booktitle = EMNLP,
+			year = {2015},
+			pages = {2026-2031},
+			url={https://aclweb.org/anthology/D/D15/D15-1239.pdf}
+			}
+		</div>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:purple">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://tial-uw.github.io" data-toggle="collapse" data-target=".navbar-collapse">TIAL</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+										<a href="http://tial-uw.github.io/people"><b>People</b></a>
+                    </li>
+                    <li>
+										<a href="http://tial-uw.github.io/projects"><b>Projects</b></a>
+                    </li>
+                    <li>
+										<a href="http://tial-uw.github.io/publications"><b>Publications</b></a>
+                    </li>
+                    <li>
+										<a href="http://tial-uw.github.io/resources"><b>Resources</b></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+			<!-- The references will be populated in "bibtex_display" !-->
+			<div id="bibtex_display">   
+			</div>
+			<div class="bibtex_template">
+				<div class ="well">
+					<div class ="container">
+						<div class="if author" style="font-weight: bold;">
+							<span class="author"></span>
+							<span class="if year"> (<span class="year"></span>) </span>
+							<span class="if url" style="margin-left: 20px">
+								<a class="url " style="color:black; font-size:10px">[Link]</a>
+							</span>
+						</div>
+
+						<!-- This div is what is used to determine what is displayed from the bib entry. It is written to produce (roughly) APA formatting, though it is not perfect... !-->
+						<div style="margin-left: 10px; margin-bottom:5px;">
+							<span class="title "></span>.
+							<span class="if editor ">
+								In <span class="editor "></span> (Eds.),
+							</span>
+							<span class="if booktitle ">
+								<span class="booktitle " style="font-style: italic;"></span>
+								<span class="if pages ">
+									(p. <span class="pages "></span>).
+								</span>
+								<span class="if address "><span class="address "></span>:</span>
+								<span class="if publisher "><span class="publisher "></span>.</span>
+							</span>
+							<span class="if journal " style="font-style: italic;">
+								<span class="journal"></span>,
+							</span>
+							<span class="if volume " style="font-style: italic;">
+								<span class="volume"></span>
+							</span>
+							<span class="if number ">
+								(<span class="number "></span>),
+							</span>
+							<span class="if journal ">
+								<span class="if pages ">
+									<span class="pages "></span>.
+								</span>
+							</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
