@@ -23,42 +23,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:purple">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://tial-uw.github.io" data-toggle="collapse" data-target=".navbar-collapse">TIAL</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-										<a href="http://tial-uw.github.io/people"><b>People</b></a>
-                    </li>
-                    <li>
-										<a href="http://tial-uw.github.io/projects"><b>Projects</b></a>
-                    </li>
-                    <li>
-										<a href="http://tial-uw.github.io/publications"><b>Publications</b></a>
-                    </li>
-                    <li>
-										<a href="http://tial-uw.github.io/resources"><b>Resources</b></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+        <div id="navbar" class="container">
+					<!--loaded by js script in the header>-->
         </div>
         <!-- /.container -->
     </nav>
@@ -171,10 +143,12 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+		<script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<script>$( "#navbar" ).load("./navbar.html" , function() { alert( "Load was performed." ); });</script>
 
 </body>
 
