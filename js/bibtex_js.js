@@ -14,6 +14,10 @@
 //  value -> value_quotes | value_braces | key;
 //  value_quotes -> '"' .*? '"'; // not quite
 //  value_braces -> '{' .*? '"'; // not quite
+//
+// Original: http://home.in.tum.de/~muehe/bibtex-js/src/bibtex_js.js
+// Cloned from (vesion 31f067c): https://github.com/AusterweilLab/bibtex-js-apa
+// Modified by: hfang
 function BibtexParser() {
   this.pos = 0;
   this.input = "";
@@ -251,67 +255,20 @@ function BibtexDisplay() {
     return value;
   }
   
-  this.displayBibtex2 = function(i, o) {
-    var b = new BibtexParser();
-    b.setInput(i);
-    b.bibtex();
-
-    var e = b.getEntries();
-    var old = o.find("*");
-  
-    for (var item in e) {
-      var tpl = $(".bibtex_template").clone().removeClass('bibtex_template');
-      tpl.addClass("unused");
-      
-      for (var key in e[item]) {
-      
-        var fields = tpl.find("." + key.toLowerCase());
-        for (var i = 0; i < fields.size(); i++) {
-          var f = $(fields[i]);
-          f.removeClass("unused");
-          var value = this.fixValue(e[item][key]);
-          if (f.is("a")) {
-            f.attr("href", value);
-          } else {
-            var currentHTML = f.html() || "";
-            if (currentHTML.match("%")) {
-              // "complex" template field
-              f.html(currentHTML.replace("%", value));
-            } else {
-              // simple field
-              f.html(value);
-            }
-          }
-        }
-      }
-    
-      var emptyFields = tpl.find("span .unused");
-      emptyFields.each(function (key,f) {
-        if (f.innerHTML.match("%")) {
-          f.innerHTML = "";
-        }
-      });
-    
-      o.append(tpl);
-      tpl.show();
-    }
-    
-    old.remove();
-  }
-
 function apaReformat(entry) {
   var retEntry = entry;
   if (entry.hasOwnProperty("AUTHOR")) {
     var perAuthor = entry.AUTHOR.split("and");
     var authStr = "";
     for (var i = 0; i < perAuthor.length; i++) {
-      if ((i>1) && (i == (perAuthor.length-1))) {
-        // authStr += "& ";
-				//! modified by hfang
-        authStr += "and ";
-      }
       var curAuth = perAuthor[i].split(".");
-      authStr += curAuth[curAuth.length-1].trim() + ", ";
+			//! this for-loop is modified by hfang
+      if ((i>1) && (i == (perAuthor.length-1))) {
+        authStr += "and ";
+				authStr += curAuth[curAuth.length-1].trim();
+      } else {
+				authStr += curAuth[curAuth.length-1].trim() + ", ";
+			}
       for (var j= 0; j < curAuth.length-1; j++) {
         authStr += curAuth[j].trim().charAt(0) + ".";
         if (j < (curAuth.length-2)) {

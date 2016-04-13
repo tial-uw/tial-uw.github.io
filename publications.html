@@ -43,54 +43,45 @@
 
     <!-- Page Content -->
     <div class="container">
-      <!-- The references will be populated in "bibtex_display" !-->
-      <div id="bibtex_display">   
-      </div>
-      <div class="bibtex_template">
-				<div class ="well">
-          <div class ="container">
-						<span class="author"></span>.
-						<span class="if year"><span class="year"></span></span>.
-            <span class="title " style="font-weight: bold;"></span>.
-
-            <div style="margin-left: 10px; margin-bottom:5px;">
-              <span class="if booktitle ">
-                In <span class="booktitle " style="font-style: italic;"></span>
-                <span class="if pages ">
-                  , pp. <span class="pages "></span>
-                </span>
-              </span>
-              <span class="if journal " style="font-style: italic;">
-                <span class="journal"></span>,
-								<span class="if volume " style="font-style: italic;">
-									, vol. <span class="volume"></span>
-								</span>
-								<span class="if number ">
-									, no. <span class="number "></span>
-								</span>
-                <span class="if pages ">
-                  , pp. <span class="pages "></span>
-                </span>
-              </span>
-            </div>
-
-            <div style="margin-left: 10px; margin-bottom:5px;">
-							<span class="if pdf">
-								<a class="url " style="color:black;">[pdf]</a>
-							</span>
-            </div>
-
-          </div>
+        <!-- The references will be populated in "bibtex_display" !-->
+        <div id="bibtex_display">   
         </div>
-      </div>
+        <div class="col-lg-12 bibtex_template">
+            <div class ="well" style="margin-bottom:10px; padding:10px;">
+                <span class="author"></span>.
+                <span class="if year"><span class="year"></span></span>.
+                <span class="title" style="font-weight: bold;"></span>.
 
-        <hr>
+                <span class="if booktitle ">
+                    In <span class="booktitle" style="font-style: italic;"></span>,
+                    <span class="if pages ">
+                        pp. <span class="pages"></span>.
+                    </span>
+                </span>
+
+                <span class="if journal " style="font-style: italic;">
+                    <span class="journal"></span>
+                    <span class="if volume " style="font-style: italic;">
+                        vol. <span class="volume"></span>,
+                    </span>
+                    <span class="if number ">
+                        no. <span class="number"></span>,
+                    </span>
+                    <span class="if pages ">
+                        pp. <span class="pages"></span>.
+                    </span>
+                </span>
+
+                <span class="if pdf">
+                    <a class="url">[pdf]</a>
+                </span>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
