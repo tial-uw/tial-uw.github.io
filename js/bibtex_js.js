@@ -392,20 +392,22 @@ function bibtex_js_draw() {
 	$(".bibtex_template").hide();
 	// (new BibtexDisplay()).displayBibtex($("#bibtex_input").text(), $("#bibtex_display"));
 	
-	$("#bibtex_input_common").load("bib/common.bib");
-	for (var year = 2016; year >= 2010; year--) {
-		//! \note: load is async call.
-		//! See http://stackoverflow.com/questions/29199442/jquery-load-inside-a-for-loop-not-working.
-		(function (year) {
-			var bibtex_input_id = "#bibtex_input-" + String(year);
-			var bibtex_display_id = "#bibtex_display-" + String(year);
-			var bib_filename = "bib/" + String(year) + ".bib"
-				$(bibtex_input_id).load(bib_filename, function() {
-					text = $("#bibtex_input_common").text() + $(bibtex_input_id).text();
-					(new BibtexDisplay()).displayBibtex(text, $(bibtex_display_id));
-				});
-		})(year);
-	}
+	//! \note Be very careful since load is async call.
+	$("#bibtex_input_common").load("bib/common.bib", function() {
+		for (var year = 2016; year >= 2010; year--) {
+			//! \note: load is async call.
+			//! See http://stackoverflow.com/questions/29199442/jquery-load-inside-a-for-loop-not-working.
+			(function (year) {
+				var bibtex_input_id = "#bibtex_input-" + String(year);
+				var bibtex_display_id = "#bibtex_display-" + String(year);
+				var bib_filename = "bib/" + String(year) + ".bib"
+					$(bibtex_input_id).load(bib_filename, function() {
+						text = $("#bibtex_input_common").text() + $(bibtex_input_id).text();
+						(new BibtexDisplay()).displayBibtex(text, $(bibtex_display_id));
+					});
+			})(year);
+		}
+	});
 }
 
 // check whether or not jquery is present
