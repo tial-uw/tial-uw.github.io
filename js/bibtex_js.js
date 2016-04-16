@@ -266,9 +266,12 @@ function BibtexDisplay() {
 				if (i == (perAuthor.length-1)) {
 					authStr += "and ";
 					authStr += curAuth[curAuth.length-1].trim();
+				} else if ((i > 0) && (perAuthor.length == 2)) {
+					authStr += curAuth[curAuth.length-1].trim() + ", ";
 				} else {
 					authStr += curAuth[curAuth.length-1].trim() + ", ";
 				}
+
 				for (var j= 0; j < curAuth.length-1; j++) {
 					authStr += curAuth[j].trim().charAt(0) + ".";
 					if (j < (curAuth.length-2)) {
