@@ -267,7 +267,7 @@ function BibtexDisplay() {
 					authStr += "and ";
 					authStr += curAuth[curAuth.length-1].trim();
 				} else if ((i > 0) && (perAuthor.length == 2)) {
-					authStr += curAuth[curAuth.length-1].trim() + ", ";
+					authStr += curAuth[curAuth.length-1].trim() + " ";
 				} else {
 					authStr += curAuth[curAuth.length-1].trim() + ", ";
 				}
