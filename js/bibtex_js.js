@@ -263,7 +263,7 @@ function BibtexDisplay() {
 			for (var i = 0; i < perAuthor.length; i++) {
 				var curAuth = perAuthor[i].split(".");
 				//! this for-loop is modified by hfang
-				if ((i>1) && (i == (perAuthor.length-1))) {
+				if (i == (perAuthor.length-1)) {
 					authStr += "and ";
 					authStr += curAuth[curAuth.length-1].trim();
 				} else {
