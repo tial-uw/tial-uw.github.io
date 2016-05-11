@@ -276,9 +276,9 @@ function BibtexDisplay() {
 					throw "unable to parse curAuth: " + perAuthor[i]; 
 				}
 
-				if (i < (perAuthor.length-1)) {
+				if (i < (perAuthor.length - 2)) {
 					authStr += ", ";
-				} else if (i == (perAuthor.length-1)) {
+				} else if (i == (perAuthor.length - 2)) {
 					authStr += "and ";
 				} else if ((i == 0) && (perAuthor.length == 2)) {
 					authStr += " ";
