@@ -279,7 +279,7 @@ function BibtexDisplay() {
 				if (i < (perAuthor.length - 2)) {
 					authStr += ", ";
 				} else if (i == (perAuthor.length - 2)) {
-					authStr += " and ";
+					authStr += ", and ";
 				}			
 			}
 
