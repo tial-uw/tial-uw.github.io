@@ -255,34 +255,38 @@ function BibtexDisplay() {
 		return value;
 	}
 
-	function apaReformat(entry) {
+	function reformat(entry) {
 		var retEntry = entry;
 		if (entry.hasOwnProperty("AUTHOR")) {
 			var perAuthor = entry.AUTHOR.split("and");
 			var authStr = "";
 			for (var i = 0; i < perAuthor.length; i++) {
-				var curAuth = perAuthor[i].split(".");
 				//! this for-loop is modified by hfang
-				if (i == (perAuthor.length-1)) {
-					authStr += "and ";
-					authStr += curAuth[curAuth.length-1].trim();
-				} else if ((i == 0) && (perAuthor.length == 2)) {
-					authStr += curAuth[curAuth.length-1].trim() + " ";
+				
+				var curAuth = perAuthor[i].split(",");
+
+				if (curAuth.length == 1) {
+					// Swap first name and last name
+					authStr += curAuth[0].trim();
+				} else if (curAuth.length == 2){
+					authStr += curAuth[1].trim();
+					authStr += " ";
+					authStr += curAuth[0].trim();
 				} else {
-					authStr += curAuth[curAuth.length-1].trim() + ", ";
+					throw "unable to parse curAuth: " + perAuthor[i]; 
 				}
 
-				for (var j= 0; j < curAuth.length-1; j++) {
-					authStr += curAuth[j].trim().charAt(0) + ".";
-					if (j < (curAuth.length-2)) {
-						authStr += " ";
+				if (i < (perAuthor.length - 2)) {
+					authStr += ", ";
+				} else if (i == (perAuthor.length - 2)) {
+					if (i == 0) {
+						authStr += " and ";
+					} else {
+						authStr += ", and ";
 					}
-
-					if (i < (perAuthor.length-1)) {
-						authStr += ", ";
-					}
-				}
+				}			
 			}
+
 			retEntry.AUTHOR = authStr;
 		}
 
@@ -332,7 +336,7 @@ function BibtexDisplay() {
 		while (queue.length > 0) {
 			var entry = queue.dequeue();
 			//remap authors so that initials come first
-			entry = apaReformat(entry);
+			entry = reformat(entry);
 			// find template
 			var tpl = $(".bibtex_template").clone().removeClass('bibtex_template');
 
