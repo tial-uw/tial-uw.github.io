@@ -1,2 +1,3 @@
-TIAL group homepage [http://tial-uw.github.io/](http://tial-uw.github.io/) 
+TIAL@UW group homepage
+[http://tial-uw.github.io/](http://tial-uw.github.io/) 
 
