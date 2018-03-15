@@ -23,10 +23,11 @@ function BibtexParser() {
 	this.input = "";
 
 	this.entries = {};
+  /*
 	this.strings = {
 		JAN: "January",
 		FEB: "February",
-		MAR: "March",      
+		MAR: "March",
 		APR: "April",
 		MAY: "May",
 		JUN: "June",
@@ -36,6 +37,21 @@ function BibtexParser() {
 		OCT: "October",
 		NOV: "November",
 		DEC: "December"
+	};
+  */
+	this.strings = {
+		JAN: "Jan.",
+		FEB: "Feb.",
+		MAR: "Mar.",
+		APR: "April",
+		MAY: "May",
+		JUN: "June",
+		JUL: "July",
+		AUG: "Aug.",
+		SEP: "Sept.",
+		OCT: "Oct.",
+		NOV: "Nov.",
+		DEC: "Dec."
 	};
 	this.currentKey = "";
 	this.currentEntry = "";
@@ -192,7 +208,7 @@ function BibtexParser() {
 
 	this.entry_body = function() {
 		this.currentEntry = this.key();
-		this.entries[this.currentEntry] = new Object();    
+		this.entries[this.currentEntry] = new Object();
 		this.match(",");
 		this.key_value_list();
 	}
@@ -258,11 +274,11 @@ function BibtexDisplay() {
 	function reformat(entry) {
 		var retEntry = entry;
 		if (entry.hasOwnProperty("AUTHOR")) {
-			var perAuthor = entry.AUTHOR.split("and");
+			var perAuthor = entry.AUTHOR.split(/\band\b/);
 			var authStr = "";
 			for (var i = 0; i < perAuthor.length; i++) {
 				//! this for-loop is modified by hfang
-				
+
 				var curAuth = perAuthor[i].split(",");
 
 				if (curAuth.length == 1) {
@@ -273,7 +289,7 @@ function BibtexDisplay() {
 					authStr += " ";
 					authStr += curAuth[0].trim();
 				} else {
-					throw "unable to parse curAuth: " + perAuthor[i]; 
+          throw "unable to parse curAuth: " + perAuthor[i];
 				}
 
 				if (i < (perAuthor.length - 2)) {
@@ -284,7 +300,7 @@ function BibtexDisplay() {
 					} else {
 						authStr += ", and ";
 					}
-				}			
+				}
 			}
 
 			retEntry.AUTHOR = authStr;
@@ -312,7 +328,7 @@ function BibtexDisplay() {
 		// iterate over bibTeX entries
 		var entries = b.getEntries();
 		//var entries = Object.keys(entriesObj);
-		// sort by alph then year 
+		// sort by alph then year
 		//! \note (hfang): I think it only sort by year, which is what we want.
 
 		var queue = new PriorityQueue({
@@ -395,10 +411,10 @@ function BibtexDisplay() {
 function bibtex_js_draw() {
 	$(".bibtex_template").hide();
 	// (new BibtexDisplay()).displayBibtex($("#bibtex_input").text(), $("#bibtex_display"));
-	
+
 	//! \note Be very careful since load is async call.
 	$("#bibtex_input_common").load("bib/common.bib", function() {
-		for (var year = 2016; year >= 2010; year--) {
+		for (var year = 2018; year >= 2010; year--) {
 			//! \note: load is async call.
 			//! See http://stackoverflow.com/questions/29199442/jquery-load-inside-a-for-loop-not-working.
 			(function (year) {
@@ -415,7 +431,7 @@ function bibtex_js_draw() {
 }
 
 // check whether or not jquery is present
-if (typeof jQuery == 'undefined') {  
+if (typeof jQuery == 'undefined') {
 	// an interesting idea is loading jquery here. this might be added
 	// in the future.
 	alert("Please include jquery in all pages using bibtex_js!");
