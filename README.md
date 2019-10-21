@@ -20,4 +20,3 @@ TIAL group homepage
 		for (var year = 2019; year >= 2010; year--) {
   ```
 * To understand how grid alignment work in `people.html`, read [this](https://getbootstrap.com/docs/4.1/layout/grid).
-
