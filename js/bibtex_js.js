@@ -414,7 +414,7 @@ function bibtex_js_draw() {
 
 	//! \note Be very careful since load is async call.
 	$("#bibtex_input_common").load("bib/common.bib", function() {
-		for (var year = 2018; year >= 2010; year--) {
+		for (var year = 2019; year >= 2010; year--) {
 			//! \note: load is async call.
 			//! See http://stackoverflow.com/questions/29199442/jquery-load-inside-a-for-loop-not-working.
 			(function (year) {
