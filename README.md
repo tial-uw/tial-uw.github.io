@@ -21,3 +21,4 @@ TIAL group homepage
   ```
   * Local debug: open the `publication.html` using Microsoft Edge. (Chrome seems not working well with local javascript.)
 * To understand how grid alignment work in `people.html`, read [this](https://getbootstrap.com/docs/4.1/layout/grid).
+* NOTE: Pictures for `people.html` should be resized to 200x200 to fit the placeholder frame; or TODO: someone make js auto-resize this?
